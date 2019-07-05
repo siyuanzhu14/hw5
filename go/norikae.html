@@ -1,16 +1,27 @@
 <html>
   <head><title>JSONを読み込む例</title></head>
   <body>
-    路線：
+    出発駅到着駅を入れる。<br>
+    <form>
+      <input type=text name=a>
+      <input type=text name=b>
+      <input type=submit>
+    </form>
+     
     <ul>
-      {{range .}}
-      <li> {{.Name}}
+      <li> 出発駅 = {{.Start}} </li>
+      <li> 到着駅 = {{.End}} </li>
+    </ul>
+    乗換案内
+    <ul>
+      {{range .Result}}
         <ul>
-          {{range .Stations}}
-          <li> {{.}} </li>
-          {{end}}
-        </ul> 
-      </li>
+            {{range .}}
+                <li> 
+                    {{.EkiName}}  {{.LineName}}
+                </li>
+            {{end}}
+        </ul>
       {{end}}
     </ul>
   </body>
